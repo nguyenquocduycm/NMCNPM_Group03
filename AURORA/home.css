@@ -1,0 +1,122 @@
+#container {
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+#container a {
+    color: inherit;
+    text-decoration: none;
+}
+
+#home-tab {
+    display: flex;
+    justify-content: space-between;
+}
+
+#home-tab .sign{
+	padding-left: 0px;
+	margin-left: 0px;
+}
+
+#home-tab .temp{
+	padding: 0px;
+	margin: 0px;
+	text-decoration: none;
+    font-family: Robika;
+    font-size: 24px;
+    display: inline-block;
+}
+
+#home-tab li {
+    text-decoration: none;
+    font-family: Robika;
+    font-size: 24px;
+    display: inline-block;
+    /*    min-width: 120px;
+*/
+    font-weight: bold;
+    margin-left: 100px;
+    /*padding-left: 0px;*/
+}
+
+#home-tab li:hover {
+    cursor: pointer;
+    color: orange;
+}
+
+.img-back {
+    position: relative;
+    margin: 0 auto;
+    z-index: 1;
+
+}
+
+.img-back img {
+    display: block;
+    transition: opacity 1s;
+}
+
+.img-back:hover .imgback-img {
+    opacity: 0.5;
+}
+
+.img-back:hover .imgback-input {
+    opacity: 0.8;
+}
+
+.about p.header-about {
+    font-family: Arial;
+    font-size: 30px;
+    transition: width 1s;
+    border-bottom: 5px solid purple;
+    width: 12%;
+    color: darkblue;
+}
+
+.about:hover p.header-about {
+    font-style: oblique;
+    /*Chu nguyen khong nhe`*/
+    font-weight: bold;
+    width: 100%;
+}
+
+#home-tab img:hover {
+    transition: all 1s ease;
+    /*Troi gian chuyen dong 1s*/
+    transform: scale(1.5, 1.5);
+    /*Phong to anh ti le 1.5*/
+}
+
+.about p.detail-about {
+    text-indent: 50px;
+    /*Thut dau dong*/
+    font-size: 24px;
+    font-weight: bold;
+    color: #5392f9;
+
+    letter-spacing: 3px;
+    /*Gian cach giua cac chu cai trong chu*/
+    line-height: 1.5;
+    /*Khoang cach giua 2 hang*/
+    word-spacing: 5px;
+    /*Khoang cach giua cac chu*/
+}
+
+.img-back form {
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    top: 235px;
+}
+
+.img-back form input {
+    font-family: Helvetica-World;
+    font-size: 16px;
+    text-align: center;
+    width: 500px;
+    height: 30px;
+    opacity: 0;
+    transition: opacity 1s;
+    border-style: none;
+}
