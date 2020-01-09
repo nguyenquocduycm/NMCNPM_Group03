@@ -1,0 +1,176 @@
+<div id="header">
+        <button class="menuBtn" onclick="toggleNavbar()"><i class="fa fa-bars" aria-hidden="true"></i></button>
+        <div class="search">
+            <input class="search-txtbox" type="text" placeholder="search">
+            <button class="search-btn"><i class="fa fa-search" aria-hidden="true"></i></button>
+        </div>
+        <div class="dropdownInfoAccount">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Account
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <button class="dropdown-item" type="button"><i class="fa fa-user"
+                        aria-hidden="true"></i>Profile</button>
+                <button class="dropdown-item" type="button"><i class="fa fa-cog" aria-hidden="true"></i>Setting</button>
+                <button class="dropdown-item" type="button"><i class="fa fa-commenting"
+                        aria-hidden="true"></i>Message</button>
+                <button class="dropdown-item" type="button"><i class="fa fa-sign-out" aria-hidden="true"></i>Log
+                    out</button>
+            </div>
+        </div>
+    </div>
+    <div id="navbar">
+        <div class="navbarweb">
+            <h2><i class="fa fa-android" aria-hidden="true"></i>admin</h2>
+            <ul>
+                <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>Home</a></li>
+                <li><a href="/view"><i class="fa fa-eye" aria-hidden="true"></i>View</a></li>
+                <li><a href="/add"><i class="fa fa-plus" aria-hidden="true"></i>Add</a></li>
+                <li><a href="/remove"><i class="fa fa-trash" aria-hidden="true"></i>Remove</a></li>
+                <li><a href="/update"><i class="fa fa-pencil" aria-hidden="true"></i>Update</a></li>
+                <li><a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i>Detail</a></li>
+            </ul>
+            <div class="socialmedia">
+                <button class="facebookBtn"><i class="fa fa-facebook-official" aria-hidden="true"></i></button>
+                <button class="googleBtn"><i class="fa fa-google" aria-hidden="true"></i></button>
+                <button class="githubBtn"><i class="fa fa-github" aria-hidden="true"></i></button>
+            </div>
+        </div>
+    </div>
+    <div id="content">
+        <div class="cardInfo">
+            <div class="row">
+                <div class="column">
+                    <div class="card">
+                        <p><i class="fa fa-user"></i></p>
+                        <h3>11.123.321</h3>
+                        <p>User</p>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="card">
+                        <p><i class="fa fa-check"></i></p>
+                        <h3>30.265.478</h3>
+                        <p>Auction</p>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="card">
+                        <p><i class="fa fa-smile-o"></i></p>
+                        <h3>5.238.679</h3>
+                        <p>Happy Clients</p>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="card">
+                        <p><i class="fa fa-money" aria-hidden="true"></i></p>
+                        <h3>120.82.357</h3>
+                        <p>Revenue</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="chart">
+            <h2>Network Activities</h2>
+            <canvas id="myChart"></canvas>
+        </div>
+        <script>
+            let myChart = document.getElementById('myChart').getContext('2d');
+            // Global Options
+            Chart.defaults.global.defaultFontFamily = 'Lato';
+            Chart.defaults.global.defaultFontSize = 10;
+            Chart.defaults.global.defaultFontColor = '#777';
+            let massPopChart = new Chart(myChart, {
+                type: 'bar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May',
+                        'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+                    ],
+                    datasets: [{
+                        label: 'Traffic website per month',
+                        data: [
+                            361759,
+                            381040,
+                            353060,
+                            366519,
+                            365162,
+                            375072,
+                            355000,
+                            369531,
+                            360645,
+                            373456,
+                            365790,
+                            352100,
+                        ],
+                        //backgroundColor:'green',
+                        backgroundColor: 'red',
+                        borderWidth: 1,
+                        borderColor: '#777',
+                        hoverBorderWidth: 3,
+                        hoverBorderColor: '#000'
+                    }]
+                },
+                options: {
+                    title: {
+                        display: true,
+                        text: 'The number of accesses',
+                        fontSize: 20
+                    },
+                    legend: {
+                        display: true,
+                        position: 'right',
+                        labels: {
+                            fontColor: '#000'
+                        }
+                    },
+                    layout: {
+                        padding: {
+                            left: 280,
+                            right: 60,
+                            bottom: 0,
+                            top: 0
+                        }
+                    },
+                    tooltips: {
+                        enabled: true
+                    }
+                }
+            });
+        </script>
+        <div class="latestUser">
+            <h2>Lastest user</h2>
+            <p>Name of 5 lastest user access to website</p>
+            {{#if this.empty}}
+            <h2>No infomation</h2>
+            {{else}}
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Account</th>
+                        <th>Password</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each this.accountInfo}}
+                    <tr>
+                        <td>{{Username}}</td>
+                        <td>{{password}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            {{/if}}
+        </div>
+    </div>
+    <div id="footer">
+    </div>
+    </div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+

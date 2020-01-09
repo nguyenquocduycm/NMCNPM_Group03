@@ -1,0 +1,97 @@
+<div id="header">
+    <button class="menuBtn"><i class="fa fa-bars" aria-hidden="true"></i></button>
+    <div class="search">
+        <input class="search-txtbox" type="text" placeholder="search">
+        <button class="search-btn"><i class="fa fa-search" aria-hidden="true"></i></button>
+    </div>
+    <div class="dropdownInfoAccount">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Account
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <button class="dropdown-item" type="button"><i class="fa fa-user" aria-hidden="true"></i>Profile</button>
+            <button class="dropdown-item" type="button"><i class="fa fa-cog" aria-hidden="true"></i>Setting</button>
+            <button class="dropdown-item" type="button"><i class="fa fa-commenting"
+                    aria-hidden="true"></i>Message</button>
+            <button class="dropdown-item" type="button"><i class="fa fa-sign-out" aria-hidden="true"></i>Log
+                out</button>
+        </div>
+    </div>
+</div>
+<div id="navbar">
+    <div class="navbarweb">
+        <h2><i class="fa fa-android" aria-hidden="true"></i>admin</h2>
+        <ul>
+            <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>Home</a></li>
+            <li><a href="/view"><i class="fa fa-eye" aria-hidden="true"></i>View</a></li>
+            <li><a href="/add"><i class="fa fa-plus" aria-hidden="true"></i>Add</a></li>
+            <li><a href="/remove"><i class="fa fa-trash" aria-hidden="true"></i>Remove</a></li>
+            <li><a href="/update"><i class="fa fa-pencil" aria-hidden="true"></i>Update</a></li>
+            <li><a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i>Detail</a></li>
+        </ul>
+        <div class="socialmedia">
+            <button class="facebookBtn"><i class="fa fa-facebook-official" aria-hidden="true"></i></button>
+            <button class="googleBtn"><i class="fa fa-google" aria-hidden="true"></i></button>
+            <button class="githubBtn"><i class="fa fa-github" aria-hidden="true"></i></button>
+        </div>
+    </div>
+</div>
+
+<div id="content">
+    <div class="listUpgrade">
+        <h2>Lastest user</h2>
+        <p>Name of all lastest user access to website</p>
+        {{#if this.empty}}
+        <h2>Khong co du lieu</h2>
+        {{else}}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Account</th>
+                    <th>Role</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each this.memberInfo}}
+                <tr>
+                    <td>{{ID}}</td>
+                    <td>{{FirstName}}</td>
+                    <td>{{Lastname}}</td>
+                    <td>{{Username}}</td>
+                    <td>{{Role}}</td>
+                    <td><button type="button" class="btn btn-success"  onclick="changeUpgrade($(this))"><i
+                                class="fa fa-level-up" aria-hidden="true"></i></button>&nbsp;<button type="button"
+                            class="btn btn-danger"><i class="fa fa-level-down" aria-hidden="true"
+                                onclick="changeDowngrade($(this))"></i></button></td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        {{/if}}
+    </div>
+</div>
+<script>
+    function changeUpgrade(row) {
+        row.closest('tr').find('td:eq(4)').html('Seller');
+        var upgradeValID=$(this).closest('tr').children('td:first').text();
+        alert(upgradeValID);
+    }
+
+    function changeDowngrade(row) {
+        row.closest('tr').find('td:eq(4)').html('Bidder');
+        var downgradeVal=document.getElementsByClassName("btn btn-success").value  ;
+    }
+</script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
